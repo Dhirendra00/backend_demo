@@ -1,21 +1,19 @@
 import dotenv from 'dotenv'
-import express from 'express'
 import connectDB from './db/index.js';
-
-const app = express();
+import { app } from './app.js';
 
 dotenv.config({
     path: './.env'
 })
-
-connectDB();
-
-app.get('/',(res, req)=>{
-    res.send('!! app started to the world !!')
-})
-
 const port = process.env.PORT || 4000
-
+connectDB()
+.then(()=>{
 app.listen(port, (res, req) => {
     console.log(`server is starting at port http://localhost:${port}`)
 })
+})
+.catch((err)=>{
+    console.log("MOONGODB connection error!!", err)
+})
+
+ 
