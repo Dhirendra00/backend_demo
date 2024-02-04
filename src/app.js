@@ -14,7 +14,7 @@ app.use(express.static("public"))
 app.use(cookieParser())
 
 
-app.get('/',(res, req)=>{
+app.get('/',(req, res)=>{
     res.send('!! app started to the world !!')
 })
 

@@ -13,7 +13,7 @@ class ApiError extends Error {
         this.success = false
    
 
-    if (statck) {
+    if (stack) {
         this.stack= statck
     }
     else
